@@ -10,7 +10,8 @@ export interface ProductCode {
 
 @Injectable({ providedIn: 'root' })
 export class ProductCodeService {
-  private baseUrl = 'https://productcodeapi.onrender.com/api/ProductCodes'; // ✅ ตรวจสอบ port ให้ตรงกับ backend
+  private baseUrl = 'http://localhost:5125/api/ProductCodes'; // ✅ ตรวจสอบ port ให้ตรงกับ backend
+  // private baseUrl = 'https://productcodeapi.onrender.com/api/ProductCodes'; // ✅ ตรวจสอบ port ให้ตรงกับ backend
 
   constructor(private http: HttpClient) {}
 
@@ -26,8 +27,8 @@ export class ProductCodeService {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
-  getQr(id: number, options?: any) {
-    return this.http.get(`${this.baseUrl}/${id}/qrcode`, options);
-  }
+getQr(id: number, options?: any) {
+  return this.http.get(`${this.baseUrl}/${id}/qrcode`, options);
+}
 
 }
