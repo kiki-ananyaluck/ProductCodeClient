@@ -1,0 +1,49 @@
+<nav>
+  <div style="height: 35px;" class="container-fluid d-flex justify-content-center align-items-center bg-success">
+    <span class="fw-bolder">IT 07-1</span>
+  </div>
+</nav>
+
+<div class="container-sm">
+
+  <form class="d-flex gap-3 align-items-center my-4">
+    <div>
+      <label for="inputProductCode" class="col-form-label fw-bolder">รหัสสินค้า</label>
+    </div>
+    <div class="flex-grow-1">
+      <input type="text" class="form-control" id="inputProductCode" placeholder="xxxxx-xxxxx-xxxxx-xxxxx" maxlength="35"
+        (input)="onProductCodeInput($event)" />
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary" (click)="create()">ADD</button>
+    </div>
+  </form>
+
+  <table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th scope="col">id</th>
+        <th scope="col">รหัสสินค้า (30 หลัก)</th>
+        <th scope="col">View</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of codes">
+        <td class="text-center">{{ row.id }}</td>
+        <td>{{ row.codeDisplay }}</td>
+        <td class="text-center">
+          <button class="btn btn-success btn-sm px-3" (click)="showQrCode(+row.id)">
+            <i class="bi bi-trash"></i> QR
+          </button>
+        </td>
+        <td class="text-center">
+          <button class="btn btn-danger btn-sm" (click)="onDelete(+row.id)">
+            <i class="bi bi-trash"></i> Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
