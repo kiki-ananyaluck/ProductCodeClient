@@ -10,7 +10,7 @@ export interface ProductCode {
 
 @Injectable({ providedIn: 'root' })
 export class ProductCodeService {
-  private baseUrl = 'https://productcodeapi.onrender.com';
+  private baseUrl = 'https://productcodeapi.onrender.com/api/ProductCodes'; // ✅ ตรวจสอบ port ให้ตรงกับ backend
 
   constructor(private http: HttpClient) {}
 
